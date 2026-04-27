@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <link href="/css/tailwind.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+  <nav class="bg-white shadow px-6 py-4 flex justify-between items-center">
+    <a href="/" class="text-2xl font-bold text-blue-600">FormForge</a>
+    <div>
+      <% if(user) { %>
+        <span class="mr-4">Hi, <%= user.name %></span>
+        <a href="/logout" class="text-blue-500 hover:underline">Logout</a>
+      <% } else { %>
+        <a href="/login" class="text-blue-500 hover:underline mr-4">Login</a>
+        <a href="/register" class="text-blue-500 hover:underline">Register</a>
+      <% } %>
+    </div>
+  </nav>
+  <main class="p-6">
+    <%- body %>
+  </main>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<% layout('layouts/main', { title: form.title, user }) %>
+
+<div class="max-w-4xl mx-auto">
+  <h2 class="text-3xl font-bold mb-6 text-gray-800"><%= form.title %></h2>
+
+  <div id="questions" class="space-y-4">
+    <% form.questions.forEach(q => { %>
+      <div class="bg-white p-4 rounded shadow">
+        <label class="block font-medium mb-2"><%= q.label %> <% if(q.required){ %>*<% } %></label>
+        <% if(q.type === 'TEXT'){ %>
+          <input type="text" class="border p-2 w-full rounded">
+        <% } else { %>
+          <div>Options: <%= JSON.stringify(q.options) %></div>
+        <% } %>
+      </div>
+    <% }) %>
+  </div>
+
+  <button id="add-question" class="mt-6 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Add Question</button>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/form.js"></script>

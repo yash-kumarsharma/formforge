@@ -1,0 +1,26 @@
+<% layout('layouts/main', { title: 'Responses', user }) %>
+
+<h2 class="text-3xl font-bold mb-6">Responses for <%= form.title %></h2>
+
+<table class="w-full bg-white rounded shadow">
+  <thead class="bg-gray-100">
+    <tr>
+      <th class="p-2 border">Submitted At</th>
+      <% form.questions.forEach(q => { %>
+        <th class="p-2 border"><%= q.label %></th>
+      <% }) %>
+    </tr>
+  </thead>
+  <tbody>
+    <% responses.forEach(r => { %>
+      <tr>
+        <td class="p-2 border"><%= r.createdAt.toLocaleString() %></td>
+        <% form.questions.forEach(q => { %>
+          <td class="p-2 border"><%= Array.isArray(r.answers[q.id]) ? r.answers[q.id].join(', ') : r.answers[q.id] %></td>
+        <% }) %>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<a href="/api/exports/<%= form.id %>/excel" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">Export to Excel</a>

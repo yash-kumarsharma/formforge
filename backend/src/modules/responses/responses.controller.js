@@ -21,4 +21,13 @@ const list = async (req, res, next) => {
   }
 };
 
-module.exports = { submit, list };
+const remove = async (req, res, next) => {
+  try {
+    await service.deleteResponse(req.params.id, req.user.userId);
+    res.json({ message: "Response deleted" });
+  } catch (err) {
+    next(err);
+  }
+};
+
+module.exports = { submit, list, remove };

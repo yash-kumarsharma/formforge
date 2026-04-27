@@ -1,0 +1,18 @@
+<% layout('layouts/main', { title: 'Dashboard', user }) %>
+
+<div class="flex justify-between items-center mb-6">
+  <h2 class="text-2xl font-bold">Your Forms</h2>
+  <a href="/forms/new" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition">+ Create Form</a>
+</div>
+
+<div class="grid md:grid-cols-2 gap-4">
+  <% forms.forEach(form => { %>
+    <div class="bg-white p-4 rounded shadow hover:shadow-md transition">
+      <h3 class="font-semibold text-lg mb-2"><%= form.title %></h3>
+      <div class="flex justify-between items-center">
+        <a href="/forms/<%= form.id %>" class="text-blue-500 hover:underline">Edit</a>
+        <a href="/forms/public/<%= form.id %>" target="_blank" class="text-green-500 hover:underline">Public Link</a>
+      </div>
+    </div>
+  <% }) %>
+</div>

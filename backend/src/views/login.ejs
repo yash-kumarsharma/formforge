@@ -1,0 +1,9 @@
+<% layout('layouts/main', { title: 'Login' }) %>
+<div class="max-w-md mx-auto mt-20 bg-white shadow p-6 rounded">
+  <h2 class="text-2xl font-bold mb-6 text-gray-800">Login</h2>
+  <form action="/login" method="POST" class="space-y-4">
+    <input type="email" name="email" placeholder="Email" class="border p-3 w-full rounded" required>
+    <input type="password" name="password" placeholder="Password" class="border p-3 w-full rounded" required>
+    <button type="submit" class="w-full bg-blue-500 text-white py-3 rounded hover:bg-blue-600 transition">Login</button>
+  </form>
+</div>

@@ -1,0 +1,16 @@
+{
+    "name": "formforge-fullstack",
+    "version": "1.0.0",
+    "description": "Unified FormForge Full-Stack Application",
+    "scripts": {
+        "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+        "setup": "cd backend && npx prisma generate",
+        "dev:backend": "cd backend && npm run dev",
+        "dev:frontend": "cd frontend && npm run dev",
+        "start": "npx concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+        "build": "npm run setup && cd frontend && npm run build"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}

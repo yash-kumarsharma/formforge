@@ -10,14 +10,14 @@ const initSocket = (httpServer) => {
   });
 
   io.on("connection", (socket) => {
-    console.log("🟢 Client connected:", socket.id);
+
 
     socket.on("join-form", (formId) => {
       socket.join(`form:${formId}`);
     });
 
     socket.on("disconnect", () => {
-      console.log("🔴 Client disconnected:", socket.id);
+
     });
   });
 
